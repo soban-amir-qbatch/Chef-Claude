@@ -98,6 +98,10 @@ main {
     width: 40px;
     font-size: 0.875rem;
     font-weight: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 980px) { 
