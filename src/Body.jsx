@@ -38,6 +38,7 @@ const Body = () => {
 
   function handleDelete(){
     setIngredients([]);
+    setRecipeContent(null);
   }
 
   return (
