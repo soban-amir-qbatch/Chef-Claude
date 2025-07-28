@@ -47,7 +47,7 @@ main {
     max-width: 400px;
 }
 
-.add-ingredient-form > button {
+.add-ingredient-form .add-btn {
     font-family: Inter, sans-serif;
     border-radius: 6px;
     border: none;
@@ -56,11 +56,27 @@ main {
     width: 150px;
     font-size: 0.875rem;
     font-weight: 500;
+    cursor: pointer;
 }
 
-.add-ingredient-form > button::before {
-    content: "+";
-    margin-right: 5px;
+.add-ingredient-form .add-btn:hover{
+    background-color: #30302d;
+}
+.add-ingredient-form .add-btn:active{
+    background-color: #43433f;
+}
+
+
+
+.add-ingredient-form .delete-btn {
+    font-family: Inter, sans-serif;
+    border-radius: 6px;
+    border: none;
+    background-color: red;
+    color: #FAFAF8;
+    width: 40px;
+    font-size: 0.875rem;
+    font-weight: 500;
 }
 
 ul.ingredients-list {

@@ -1,6 +1,8 @@
 import ClaudeRecipe from './ClaudeRecipe';
 import { ClipLoader } from "react-spinners";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import IngredientList from './IngredientList';
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { getRecipeFromMistral } from './ai';
 import { useState } from 'react';
 
@@ -14,18 +16,28 @@ const Body = () => {
 
   function addIngredient(formData) {
     const newIngredient = formData.get("ingredient")
-    setIngredients(prevIngredients => [...prevIngredients, newIngredient])
+    if (newIngredient){
+      setIngredients(prevIngredients => [...prevIngredients, newIngredient])
+    }
+    else{
+      alert("Add a ingredient first!");
+    }
   }
 
   async function handleGetRecipe() {
+    setRecipeShown(false)
     setLoading(true);
 
     const aiResponse = await getRecipeFromMistral(ingredients);
-    console.log(aiResponse);
+    // console.log(aiResponse);
     setRecipeContent(aiResponse);
     
     setLoading(false);
-    setRecipeShown(prev => !prev);
+    setRecipeShown(true);
+  }
+
+  function handleDelete(){
+    setIngredients([]);
   }
 
   return (
@@ -37,7 +49,8 @@ const Body = () => {
           aria-label="Add ingredient"
           name="ingredient"
         />
-        <button>Add ingredient</button>
+        <button className='add-btn'>Add ingredient</button>
+        {ingredients.length > 0 && <button type="button" onClick={handleDelete} className='delete-btn'><FontAwesomeIcon icon={faTrash} /></button>}
       </form>
       {ingredients.length > 0?
         <IngredientList ingredients={ingredients} handleGetRecipe={handleGetRecipe} loading={loading}/>
