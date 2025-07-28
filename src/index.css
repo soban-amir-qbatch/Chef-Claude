@@ -5,7 +5,14 @@
 body {
     margin: 0;
     font-family: Inter, sans-serif;
+    font-size: 1rem;
     background-color: #FAFAF8;
+}
+
+@media (max-width: 980px) {
+  body{
+    font-size: 2rem;
+  }
 }
 
 header {
@@ -22,8 +29,20 @@ header > img {
     width: 50px;
 }
 
-header > h1 {
+header > span {
     font-weight: 400;
+}
+
+@media (max-width: 980px) {
+  header{
+    height: 140px;
+  }
+  header > img {
+    width: 80px;
+  }
+  header > span{
+    font-size: 3rem;
+  }
 }
 
 main {
@@ -81,13 +100,38 @@ main {
     font-weight: 500;
 }
 
+@media (max-width: 980px) { 
+  .add-ingredient-form{
+    height: 90px;
+  }
+  .add-ingredient-form > input {
+    font-size: 2rem;
+  }
+  .add-ingredient-form .add-btn {
+    width: auto;
+    font-size: 2rem;
+    padding: 0 20px;
+  }
+  .add-ingredient-form .delete-btn{
+    width: 90px;
+    font-size: 2rem;
+  }
+}
+
 ul.ingredients-list {
     margin-bottom: 48px;
 }
 
 ul.ingredients-list > li {
     color: #475467;
-    line-height: 28px;
+    line-height: 1.5rem;
+}
+
+@media (max-width: 980px) { 
+  ul.ingredients-list > li {
+      color: #475467;
+      line-height: 3rem;
+  }
 }
 
 .get-recipe-container {
@@ -97,6 +141,8 @@ ul.ingredients-list > li {
     border-radius: 8px;
     background: #F0EFEB;
     padding: 10px 28px;
+
+    margin-bottom: 2rem;
 }
 
 .get-recipe-container h3 {
@@ -123,6 +169,22 @@ ul.ingredients-list > li {
     font-family: Inter, sans-serif;
     font-size: 0.875rem;
     cursor: pointer;
+}
+
+@media (max-width: 980px) {
+  .get-recipe-container h3 {
+    font-size: 2.5rem;
+  }
+
+  .get-recipe-container p {
+    font-size: 1.5rem;
+  }
+
+  .get-recipe-container button {
+    font-size: 1.5rem;
+    height: 5rem;
+    width: 11rem;
+  }
 }
 
 .suggested-recipe-container {
