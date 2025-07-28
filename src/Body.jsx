@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 const Body = () => {
 
-  const [ingredients, setIngredients] = useState(["Bread","Cheese","Oil","Chicken"]);
+  const [ingredients, setIngredients] = useState([]);
   const [recipeShown, setRecipeShown] = useState(false);
   const [recipeContent, setRecipeContent] = useState(null);
   const [loading, setLoading] = useState(false);
